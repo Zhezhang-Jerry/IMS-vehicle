@@ -6,10 +6,9 @@ const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { users, setCurrentUser, isLoggedIn } = useUserStore((state) => ({
+  const { users, setCurrentUser } = useUserStore((state) => ({
     users: state.users,
-    setCurrentUser: state.setCurrentUser,
-    isLoggedIn: state.isLoggedIn,
+    setCurrentUser: state.setCurrentUser
   }));
 
   const handleChange = (e) => {
@@ -22,11 +21,11 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-      const user = users.find((user) => user.email === email);
-      if (user && user.password === password) {
-        setCurrentUser(user);
-        navigate({ to: "/Home", replace: true });
-      }
+    const user = users.find((user) => user.email === email);
+    if (user && user.password === password) {
+      setCurrentUser(user);
+      navigate({ to: "/Home", replace: true });
+    }
     setEmail("");
     setPassword("");
   };
@@ -68,24 +67,24 @@ const Login = () => {
 
 const styles = {
   container: {
-    textAlign: "center",
+    textAlign: "center"
   },
   heading: {
     marginTop: 0,
     fontSize: "24px",
-    fontWeight: "bold",
+    fontWeight: "bold"
   },
   label: {
     display: "block",
     marginBottom: "5px",
-    fontSize: "16px",
+    fontSize: "16px"
   },
   input: {
     padding: "5px",
     fontSize: "16px",
     borderRadius: "3px",
-    border: "1px solid #ccc",
-  },
+    border: "1px solid #ccc"
+  }
 };
 
 export default Login;

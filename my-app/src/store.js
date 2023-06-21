@@ -15,6 +15,6 @@ export const useUserStore = create((set) => ({
   logoutUser: () => {
     localStorage.removeItem("currentUser");
     set({ currentUser: {}, isLoggedIn: false });
-  },
+  }
 }));
 
